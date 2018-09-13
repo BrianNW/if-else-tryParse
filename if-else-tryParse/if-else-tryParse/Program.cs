@@ -12,7 +12,17 @@ namespace if_else_tryParse
         {
             Console.WriteLine("What's the temperature like?");
             string temperature = Console.ReadLine();
-            int numTemp = int.Parse(temperature);
+            int numTemp;
+            int number;
+
+            if(int.TryParse(temperature, out number))
+            {
+              numTemp = number;
+            } else
+            {
+                numTemp = 0;
+                Console.WriteLine("Value entered was no number. 0 set as temperature");
+            }
 
             if(numTemp < 20)
             {
@@ -26,7 +36,7 @@ namespace if_else_tryParse
 
             if(numTemp > 20)
             {
-                Consolee.WriteLine("Shorts are enough today");
+                Console.WriteLine("Shorts are enough today");
             }
             Console.Read();
         }
